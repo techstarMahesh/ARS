@@ -128,10 +128,99 @@
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="web\404.html" />
+    <Content Include="web\500.html" />
+    <Content Include="web\blank-page.html" />
+    <Content Include="web\buttons.html" />
+    <Content Include="web\charts.html" />
+    <Content Include="web\compose.html" />
+    <Content Include="web\css\animate.css" />
+    <Content Include="web\css\bootstrap.css" />
+    <Content Include="web\css\custom.css" />
+    <Content Include="web\css\export.css" />
+    <Content Include="web\css\font-awesome.css" />
+    <Content Include="web\css\graph.css" />
+    <Content Include="web\css\jqcandlestick.css" />
+    <Content Include="web\css\monthly.css" />
+    <Content Include="web\css\owl.carousel.css" />
+    <Content Include="web\css\SidebarNav.min.css" />
+    <Content Include="web\css\style.css" />
+    <Content Include="web\fonts\fontawesome-webfont.svg" />
+    <Content Include="web\forms.html" />
+    <Content Include="web\general.html" />
+    <Content Include="web\grids.html" />
+    <Content Include="web\icons.html" />
+    <Content Include="web\images\1.jpg" />
+    <Content Include="web\images\2.jpg" />
+    <Content Include="web\images\3.jpg" />
+    <Content Include="web\images\4.jpg" />
+    <Content Include="web\images\a.png" />
+    <Content Include="web\images\i1.png" />
+    <Content Include="web\images\i2.png" />
+    <Content Include="web\images\i3.png" />
+    <Content Include="web\images\i4.png" />
+    <Content Include="web\images\img-sprite.png" />
+    <Content Include="web\images\img1.png" />
+    <Content Include="web\images\lock.png" />
+    <Content Include="web\images\mail.png" />
+    <Content Include="web\images\search-icon.png" />
+    <Content Include="web\images\slider1.jpg" />
+    <Content Include="web\images\slider2.jpg" />
+    <Content Include="web\images\slider3.jpg" />
+    <Content Include="web\images\slider4.jpg" />
+    <Content Include="web\images\slider5.jpg" />
+    <Content Include="web\images\slider6.jpg" />
+    <Content Include="web\images\slider7.jpg" />
+    <Content Include="web\images\tick.png" />
+    <Content Include="web\images\user.png" />
+    <Content Include="web\images\weather.jpg" />
+    <Content Include="web\inbox.html" />
+    <Content Include="web\index.html" />
+    <Content Include="web\js\amcharts.js" />
+    <Content Include="web\js\bootstrap.js" />
+    <Content Include="web\js\Chart.bundle.js" />
+    <Content Include="web\js\Chart.js" />
+    <Content Include="web\js\Chart.min.js" />
+    <Content Include="web\js\chartinator.js" />
+    <Content Include="web\js\classie.js" />
+    <Content Include="web\js\custom.js" />
+    <Content Include="web\js\export.min.js" />
+    <Content Include="web\js\images\dragIconRoundBig.svg" />
+    <Content Include="web\js\images\lens.svg" />
+    <Content Include="web\js\index.js" />
+    <Content Include="web\js\index1.js" />
+    <Content Include="web\js\index2.js" />
+    <Content Include="web\js\jquery-1.11.1.min.js" />
+    <Content Include="web\js\jquery.flot.js" />
+    <Content Include="web\js\jquery.jqcandlestick.min.js" />
+    <Content Include="web\js\jquery.nicescroll.js" />
+    <Content Include="web\js\light.js" />
+    <Content Include="web\js\metisMenu.min.js" />
+    <Content Include="web\js\modernizr.custom.js" />
+    <Content Include="web\js\monthly.js" />
+    <Content Include="web\js\owl.carousel.js" />
+    <Content Include="web\js\pie-chart.js" />
+    <Content Include="web\js\scripts.js" />
+    <Content Include="web\js\serial.js" />
+    <Content Include="web\js\SidebarNav.min.js" />
+    <Content Include="web\js\SimpleChart.js" />
+    <Content Include="web\js\utils.js" />
+    <Content Include="web\js\validator.min.js" />
+    <Content Include="web\login.html" />
+    <Content Include="web\media.html" />
+    <Content Include="web\signup.html" />
+    <Content Include="web\tables.html" />
+    <Content Include="web\typography.html" />
+    <Content Include="web\validation.html" />
+    <Content Include="web\w3layouts-License.txt" />
+    <Content Include="web\widgets.html" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -145,16 +234,26 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Views\Shared\_AdminLayoutPage.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="web\fonts\fontawesome-webfont.eot" />
+    <Content Include="web\fonts\fontawesome-webfont.ttf" />
+    <Content Include="web\fonts\fontawesome-webfont.woff" />
+    <Content Include="web\fonts\fontawesome-webfont.woff2" />
+    <Content Include="web\fonts\FontAwesome.otf" />
+    <Content Include="web\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="web\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="web\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="web\fonts\glyphicons-halflings-regular.woff2" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
