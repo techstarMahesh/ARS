@@ -1,9 +1,10 @@
-﻿@model ARS.Models.AeroPlaneInfo
+﻿@model IEnumerable<ARS.Models.TicketReservation_tbl>
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
 }
+
 <div class="sticky-header header-section ">
     <div class="header-left">
 
@@ -211,56 +212,82 @@
     </div>
     <div class="clearfix"> </div>
 </div>
-<!--Hedder End-->
-<!--Main Content Start-->
 <div id="page-wrapper">
     <div class="main-page">
-        <h2 class="title1">Create</h2>
+        <h2 class="title1">Index</h2>
         <div class="blank-page widget-shadow scroll" id="style-2 div1">
-            <h3>@ViewBag.Created</h3>
 
-            @using (Html.BeginForm())
-            {
-                @Html.AntiForgeryToken()
+            <p>
+                @Html.ActionLink("Create New", "Create")
+            </p>
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RestFrom)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RestTo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RestDepDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RestTime)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PlaneID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Plane_tbls)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PlaneSeats)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ResTicketPrice)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ResPlaneType)
+                    </th>
+                    <th></th>
+                </tr>
 
-                <div class="form-horizontal">
-                    <h4>AeroPlaneInfo</h4>
-                    <hr />
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.planeName, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.planeName, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.planeName, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RestFrom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RestTo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RestDepDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RestTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PlaneID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Plane_tbls)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PlaneSeats)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ResTicketPrice)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ResPlaneType)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ResId }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.ResId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ResId })
+                        </td>
+                    </tr>
+                }
 
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.SeatingCapacity, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.SeatingCapacity, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.SeatingCapacity, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Create" class="btn btn-default" />
-                        </div>
-                    </div>
-                </div>
-            }
-        </div>
-    </div>
-</div>
-<div>
-    @*@Html.ActionLink("Back to List", "Index")*@
-</div>
+            </table>

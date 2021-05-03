@@ -7,113 +7,112 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ARS.Models;
-using ARS.Controllers;
 
 namespace ARS.Controllers
 {
-    public class AeroPlaneController : Controller
+    public class TicketReservationController : Controller
     {
         private ContextCS db = new ContextCS();
 
-        // GET: AeroPlane
+        // GET: TicketReservation
         public ActionResult Index()
         {
-            return View(db.PlaneInfo.ToList());
+            return View(db.TicketReservation_tbl.ToList());
         }
 
-        // GET: AeroPlane/Details/5
+        // GET: TicketReservation/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AeroPlaneInfo aeroPlaneInfo = db.PlaneInfo.Find(id);
-            if (aeroPlaneInfo == null)
+            TicketReservation_tbl ticketReservation_tbl = db.TicketReservation_tbl.Find(id);
+            if (ticketReservation_tbl == null)
             {
                 return HttpNotFound();
             }
-            return View(aeroPlaneInfo);
+            return View(ticketReservation_tbl);
         }
 
-        // GET: AeroPlane/Create
+        // GET: TicketReservation/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: AeroPlane/Create
+        // POST: TicketReservation/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PlaneId,planeName,SeatingCapacity,Price")] AeroPlaneInfo aeroPlaneInfo)
+        public ActionResult Create([Bind(Include = "ResId,RestFrom,RestTo,RestDepDate,RestTime,PlaneID,Plane_tbls,PlaneSeats,ResTicketPrice,ResPlaneType")] TicketReservation_tbl ticketReservation_tbl)
         {
             if (ModelState.IsValid)
             {
-                db.PlaneInfo.Add(aeroPlaneInfo);
+                db.TicketReservation_tbl.Add(ticketReservation_tbl);
                 db.SaveChanges();
-                ViewBag.Created = "Record Added";
+                ViewBag.Created = "Record Created";
                 return View();
                 //return RedirectToAction("Index");
             }
 
-            return View(aeroPlaneInfo);
+            return View(ticketReservation_tbl);
         }
 
-        // GET: AeroPlane/Edit/5
+        // GET: TicketReservation/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AeroPlaneInfo aeroPlaneInfo = db.PlaneInfo.Find(id);
-            if (aeroPlaneInfo == null)
+            TicketReservation_tbl ticketReservation_tbl = db.TicketReservation_tbl.Find(id);
+            if (ticketReservation_tbl == null)
             {
                 return HttpNotFound();
             }
-            return View(aeroPlaneInfo);
+            return View(ticketReservation_tbl);
         }
 
-        // POST: AeroPlane/Edit/5
+        // POST: TicketReservation/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PlaneId,planeName,SeatingCapacity,Price")] AeroPlaneInfo aeroPlaneInfo)
+        public ActionResult Edit([Bind(Include = "ResId,RestFrom,RestTo,RestDepDate,RestTime,PlaneID,Plane_tbls,PlaneSeats,ResTicketPrice,ResPlaneType")] TicketReservation_tbl ticketReservation_tbl)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(aeroPlaneInfo).State = EntityState.Modified;
+                db.Entry(ticketReservation_tbl).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(aeroPlaneInfo);
+            return View(ticketReservation_tbl);
         }
 
-        // GET: AeroPlane/Delete/5
+        // GET: TicketReservation/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AeroPlaneInfo aeroPlaneInfo = db.PlaneInfo.Find(id);
-            if (aeroPlaneInfo == null)
+            TicketReservation_tbl ticketReservation_tbl = db.TicketReservation_tbl.Find(id);
+            if (ticketReservation_tbl == null)
             {
                 return HttpNotFound();
             }
-            return View(aeroPlaneInfo);
+            return View(ticketReservation_tbl);
         }
 
-        // POST: AeroPlane/Delete/5
+        // POST: TicketReservation/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            AeroPlaneInfo aeroPlaneInfo = db.PlaneInfo.Find(id);
-            db.PlaneInfo.Remove(aeroPlaneInfo);
+            TicketReservation_tbl ticketReservation_tbl = db.TicketReservation_tbl.Find(id);
+            db.TicketReservation_tbl.Remove(ticketReservation_tbl);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

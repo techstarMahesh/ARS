@@ -19,5 +19,6 @@ namespace ARS.Models
         public DbSet<AeroPlaneInfo> PlaneInfo { get; set; }
         public DbSet<FlightBooking> FlightsBookings { get; set; }
 
+        public System.Data.Entity.DbSet<ARS.Models.TicketReservation_tbl> TicketReservation_tbl { get; set; }
     }
 }

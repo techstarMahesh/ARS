@@ -256,6 +256,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AeroPlaneController.cs" />
+    <Compile Include="Controllers\TicketReservationController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -311,6 +312,11 @@
     <Content Include="Views\AeroPlane\Details.cshtml" />
     <Content Include="Views\AeroPlane\Edit.cshtml" />
     <Content Include="Views\AeroPlane\Index.cshtml" />
+    <Content Include="Views\TicketReservation\Create.cshtml" />
+    <Content Include="Views\TicketReservation\Delete.cshtml" />
+    <Content Include="Views\TicketReservation\Details.cshtml" />
+    <Content Include="Views\TicketReservation\Edit.cshtml" />
+    <Content Include="Views\TicketReservation\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
