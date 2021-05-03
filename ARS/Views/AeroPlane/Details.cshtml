@@ -1,0 +1,43 @@
+﻿@model ARS.Models.AeroPlaneInfo
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AeroPlaneInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.planeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.planeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SeatingCapacity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SeatingCapacity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PlaneId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

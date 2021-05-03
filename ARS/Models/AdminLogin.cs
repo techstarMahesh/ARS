@@ -110,22 +110,23 @@ namespace ARS.Models
         //Plane Name
         [Required(ErrorMessage = "Plane Name is Requred")]
         [MinLength(4, ErrorMessage = "Minimum 4 Carrecter are allows"), MaxLength(16, ErrorMessage = "Maximum 16 Carrecter are allows")]
-        [Display(Name = "planeName")]
+        [Display(Name = "Plane Name")]
         public string planeName { get; set; }
 
         // Plane Sheating Capicaty
         [Required(ErrorMessage = "Plane Shitting capicaty are requard")]
-        [Display(Name = "SeatingCapacity")]
+        [Display(Name = "Seating Capacity")]
         public int SeatingCapacity { get; set; }
 
         //Plane Price
         [Required(ErrorMessage = "Plane price are requard")]
-        [Display(Name = "planePrice")]
+        [Display(Name = "Plane Price")]
         public float Price { get; set; }
     }
     [Table("TblFlightBook")]
     public class FlightBooking
     {
+        /*
         [Key]
         public int bId { get; set; }
 
@@ -162,11 +163,14 @@ namespace ARS.Models
         [Display(Name ="Seat Type")]
         [StringLength(25)]
         public string SeatType { get; set; }
+        */
 
+        [Key]
+        public int bId { get; set; }
 
-
-        /*
-
+        //Coustuemr Name
+        [Required(ErrorMessage ="Coustumer Name is Requard")]
+        public string bCusName { get; set; }
         //Coustumer Address
         [Required(ErrorMessage = "Coustumer Address is Requard")]
         public string To { get; set; }
@@ -190,14 +194,9 @@ namespace ARS.Models
         //Reservation ID
         public int ResId { get; set; }
         public virtual TicketReservation_tbl TicketResevation_tbls { get; set; }
-        
-
-        */
 
     }
 
-
-    /*
     public class TicketReservation_tbl
     {
         [Key]
@@ -235,9 +234,7 @@ namespace ARS.Models
         //Flight Booking Number
         [Required, Display(Name = "Plane Type: ")]
         public string ResPlaneType { get; set; }
-        public virtual ICollection<flightBooking> tblFlightBookings { get; set; }
+        public virtual ICollection<FlightBooking> tblFlightBookings { get; set; }
 
     }
-
-    */
 }

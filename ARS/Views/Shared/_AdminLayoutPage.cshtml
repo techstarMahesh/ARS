@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -125,8 +126,10 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="grids.html"><i class="fa fa-angle-right"></i> Add</a></li>
-                                <li><a href="media.html"><i class="fa fa-angle-right"></i> View</a></li>
+                                <li>@Html.ActionLink("Add Flight", "Create", "AeroPlane" )</li>
+                                @*<li><a href="grids.html"><i class="fa fa-angle-right"></i> Add</a></li>*@
+                                <li>@Html.ActionLink("View Flight", "Index", "AeroPlane")</li>
+                                @*<li><a href="media.html"><i class="fa fa-angle-right"></i> View</a></li>*@
                             </ul>
                         </li>
                         <li class="treeview">
@@ -164,7 +167,7 @@
 
     
         
- 
+ <footer>
         <!--footer-->
         <div class="footer">
             <p>&copy; 2018 Glance Design Dashboard. All Rights Reserved | Design by <a href="https://w3layouts.com/" target="_blank">w3layouts</a></p>
@@ -582,6 +585,7 @@
     <!-- //for index page weekly sales java script -->
     <!-- Bootstrap Core JavaScript -->
     <script src="~/web/js/bootstrap.js"> </script>
-    <!-- //Bootstrap Core JavaScript -->   
+    <!-- //Bootstrap Core JavaScript -->
+    </footer>   
 </body>
 </html>

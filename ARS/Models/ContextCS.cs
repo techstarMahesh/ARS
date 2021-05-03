@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 using ARS.Models;
+using ARS.Controllers;
 
 namespace ARS.Models
 {
