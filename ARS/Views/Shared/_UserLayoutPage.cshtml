@@ -1,0 +1,150 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <!-- Start Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- End Required meta tags -->
+    <!-- Start Bootstrap CSS -->
+    <link href="~/Bootstrap/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link href='~/Bootstrap/css/bootstrap.min.css' rel="stylesheet">
+    <link href='~/Bootstrapcss/font-awesome.min.css' rel="stylesheet" />
+    <link href="~/Bootstrap/css/bootstrap-grid.min.css" rel="stylesheet" />
+    <!-- End Bootstrap CSS -->
+    <!-- Start Bootstrap Java Script & J Quary -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src='~/Bootstrap/js/bootstrap.bundle.min.js'></script>
+    <script src="~/Bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Bootstrap/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+    <script src="~/Bootstrap/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <!-- End Bootstrap Java Script & J Quary -->
+
+    <title>@ViewBag.Title - ARS</title>
+</head>
+<body>
+
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <!-- Start Navivation Bar -->
+        <div class="container-fluid">
+
+            @Html.ActionLink("Airline Reservation and Schudaling", "Home", "Home", new { @class = "navbar-brand" })
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    @Html.ActionLink("About", "About_Us", "About_Us", new { @class = "navbar-brand" })
+                    @Html.ActionLink("Contect Us", "Contect_Us", "Contect_Us", new { @class = "navbar-brand" })
+                    @Html.ActionLink("Our Offices", "Our_Offices", "Our_Offices", new { @class = "navbar-brand" })
+                    @Html.ActionLink("Services", "Services", "Services", new { @class = "navbar-brand" })
+                    @Html.ActionLink("Logout", "Logout", "Logout", new { @class = "navbar-brand" })
+
+                </div>
+            </div>
+        </div>
+        <!-- End Navivation Bar -->
+    </nav>
+    
+    
+         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img class="d-block w-100" src="~/Content/Image/a1.jpg" alt="First slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-100" src="~/Content/Image/a2.jpg" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-100" src="~/Content/Image/a1.jpg" alt="Third slide">
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+
+
+    <div>
+        @RenderBody()
+    </div>
+    
+
+
+
+    
+    <div class="container-fluid mt-auto">
+        <!-- Start Footer Section -->
+        <div class="card mx-auto">
+            <div class="row mb-4 ">
+                <div class="col-md-4 col-sm-11 col-xs-11">
+                    <div class="footer-text pull-left">
+                        <div class="d-flex">
+                            <h1 class="font-weight-bold mr-2 px-3" style="color:#16151a; background-color:#957bda"> T </h1>
+                            <h1 style="color: #957bda">Devs</h1>
+                        </div>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi non pariatur numquam animi nam at impedit odit nisi.</p>
+                        <div class="social mt-2 mb-3"> <i class="fa fa-facebook-official fa-lg"></i> <i class="fa fa-instagram fa-lg"></i> <i class="fa fa-twitter fa-lg"></i> <i class="fa fa-linkedin-square fa-lg"></i> <i class="fa fa-facebook"></i> </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-1 col-xs-1 mb-2"></div>
+                <div class="col-md-2 col-sm-4 col-xs-4">
+                    <h5 class="heading">Services</h5>
+                    <ul>
+                        <li>IT Consulting -</li>
+                        <li>Development</li>
+                        <li>Cloud</li>
+                        <li>DevOps & Support</li>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-sm-4 col-xs-4">
+                    <h5 class="heading">Industries</h5>
+                    <ul class="card-text">
+                        <li>Finance</li>
+                        <li>Public Sector</li>
+                        <li>Smart Office</li>
+                        <li>Retail</li>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-sm-4 col-xs-4">
+                    <h5 class="heading">Company</h5>
+                    <ul class="card-text">
+                        <li>About Us</li>
+                        <li>Blog</li>
+                        <li>Contact</li>
+                        <li>Join Us</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="divider mb-4"> </div>
+            <div class="row" style="font-size:10px;">
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div class="pull-left">
+                        <p><i class="fa fa-copyright"></i>&copy; @DateTime.Now.Year - Techstar Mahesh</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div class="pull-right mr-4 d-flex policy">
+                        <div>Terms of Use</div>
+                        <div>Privacy Policy</div>
+                        <div>Cookie Policy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Section -->
+    </div>
+</body>
+</html>
