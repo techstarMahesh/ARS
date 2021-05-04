@@ -46,7 +46,14 @@ namespace ARS.Controllers
         }
         public ActionResult Deshbord()
         {
-            return View();
+            if (Session["admin"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Deshbord");
+            }
         }
     }
 }

@@ -17,30 +17,54 @@ namespace ARS.Controllers
         // GET: TicketReservation
         public ActionResult Index()
         {
-            var ticketReservation_tbl = db.TicketReservation_tbl.Include(t => t.Plane_tbls);
-            return View(ticketReservation_tbl.ToList());
+            if (Session["admin"] != null)
+            {
+                var ticketReservation_tbl = db.TicketReservation_tbl.Include(t => t.Plane_tbls);
+                return View(ticketReservation_tbl.ToList());
+            }
+            else
+            {
+                return RedirectToAction("AdminLogin", "Admin");
+            }
+            
         }
 
         // GET: TicketReservation/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["admin"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                TicketReservation_tbl ticketReservation_tbl = db.TicketReservation_tbl.Find(id);
+                if (ticketReservation_tbl == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(ticketReservation_tbl);
             }
-            TicketReservation_tbl ticketReservation_tbl = db.TicketReservation_tbl.Find(id);
-            if (ticketReservation_tbl == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("AdminLogin", "Admin");
             }
-            return View(ticketReservation_tbl);
+            
         }
 
         // GET: TicketReservation/Create
         public ActionResult Create()
         {
-            ViewBag.PlaneID = new SelectList(db.PlaneInfo, "PlaneId", "planeName");
-            return View();
+            if (Session["admin"] != null)
+            {
+                ViewBag.PlaneID = new SelectList(db.PlaneInfo, "PlaneId", "planeName");
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("AdminLogin", "Admin");
+            }
+            
         }
 
         // POST: TicketReservation/Create
@@ -50,31 +74,47 @@ namespace ARS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ResId,RestFrom,RestTo,RestDepDate,RestTime,PlaneID,PlaneSeats,ResTicketPrice,ResPlaneType")] TicketReservation_tbl ticketReservation_tbl)
         {
-            if (ModelState.IsValid)
+            if (Session["admin"] != null)
             {
-                db.TicketReservation_tbl.Add(ticketReservation_tbl);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                if (ModelState.IsValid)
+                {
+                    db.TicketReservation_tbl.Add(ticketReservation_tbl);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
 
-            ViewBag.PlaneID = new SelectList(db.PlaneInfo, "PlaneId", "planeName", ticketReservation_tbl.PlaneID);
-            return View(ticketReservation_tbl);
+                ViewBag.PlaneID = new SelectList(db.PlaneInfo, "PlaneId", "planeName", ticketReservation_tbl.PlaneID);
+                return View(ticketReservation_tbl);
+            }
+            else
+            {
+                return RedirectToAction("AdminLogin", "Admin");
+            }
+            
         }
 
         // GET: TicketReservation/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["admin"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                TicketReservation_tbl ticketReservation_tbl = db.TicketReservation_tbl.Find(id);
+                if (ticketReservation_tbl == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.PlaneID = new SelectList(db.PlaneInfo, "PlaneId", "planeName", ticketReservation_tbl.PlaneID);
+                return View(ticketReservation_tbl);
             }
-            TicketReservation_tbl ticketReservation_tbl = db.TicketReservation_tbl.Find(id);
-            if (ticketReservation_tbl == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("AdminLogin", "Admin");
             }
-            ViewBag.PlaneID = new SelectList(db.PlaneInfo, "PlaneId", "planeName", ticketReservation_tbl.PlaneID);
-            return View(ticketReservation_tbl);
+            
         }
 
         // POST: TicketReservation/Edit/5
@@ -84,29 +124,45 @@ namespace ARS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ResId,RestFrom,RestTo,RestDepDate,RestTime,PlaneID,PlaneSeats,ResTicketPrice,ResPlaneType")] TicketReservation_tbl ticketReservation_tbl)
         {
-            if (ModelState.IsValid)
+            if (Session["admin"] != null)
             {
-                db.Entry(ticketReservation_tbl).State = EntityState.Modified;
-                db.SaveChanges();
-                return View();
+                if (ModelState.IsValid)
+                {
+                    db.Entry(ticketReservation_tbl).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return View();
+                }
+                ViewBag.PlaneID = new SelectList(db.PlaneInfo, "PlaneId", "planeName", ticketReservation_tbl.PlaneID);
+                return View(ticketReservation_tbl);
             }
-            ViewBag.PlaneID = new SelectList(db.PlaneInfo, "PlaneId", "planeName", ticketReservation_tbl.PlaneID);
-            return View(ticketReservation_tbl);
+            else
+            {
+                return RedirectToAction("AdminLogin", "Admin");
+            }
+            
         }
 
         // GET: TicketReservation/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["admin"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                TicketReservation_tbl ticketReservation_tbl = db.TicketReservation_tbl.Find(id);
+                if (ticketReservation_tbl == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(ticketReservation_tbl);
             }
-            TicketReservation_tbl ticketReservation_tbl = db.TicketReservation_tbl.Find(id);
-            if (ticketReservation_tbl == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("AdminLogin", "Admin");
             }
-            return View(ticketReservation_tbl);
+            
         }
 
         // POST: TicketReservation/Delete/5
@@ -114,10 +170,18 @@ namespace ARS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            TicketReservation_tbl ticketReservation_tbl = db.TicketReservation_tbl.Find(id);
-            db.TicketReservation_tbl.Remove(ticketReservation_tbl);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (Session["admin"] != null)
+            {
+                TicketReservation_tbl ticketReservation_tbl = db.TicketReservation_tbl.Find(id);
+                db.TicketReservation_tbl.Remove(ticketReservation_tbl);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("AdminLogin", "Admin");
+            }
+            
         }
 
         protected override void Dispose(bool disposing)
