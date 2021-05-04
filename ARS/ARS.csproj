@@ -256,11 +256,17 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AeroPlaneController.cs" />
+    <Compile Include="Controllers\FlightBookingsController.cs" />
     <Compile Include="Controllers\TicketReservationController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104260543016_addTable.cs" />
+    <Compile Include="Migrations\202104260543016_addTable.Designer.cs">
+      <DependentUpon>202104260543016_addTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AdminLogin.cs" />
     <Compile Include="Models\ContextCS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -312,6 +318,11 @@
     <Content Include="Views\AeroPlane\Details.cshtml" />
     <Content Include="Views\AeroPlane\Edit.cshtml" />
     <Content Include="Views\AeroPlane\Index.cshtml" />
+    <Content Include="Views\FlightBookings\Create.cshtml" />
+    <Content Include="Views\FlightBookings\Delete.cshtml" />
+    <Content Include="Views\FlightBookings\Details.cshtml" />
+    <Content Include="Views\FlightBookings\Edit.cshtml" />
+    <Content Include="Views\FlightBookings\Index.cshtml" />
     <Content Include="Views\TicketReservation\Create.cshtml" />
     <Content Include="Views\TicketReservation\Delete.cshtml" />
     <Content Include="Views\TicketReservation\Details.cshtml" />
@@ -335,6 +346,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202104260543016_addTable.resx">
+      <DependentUpon>202104260543016_addTable.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

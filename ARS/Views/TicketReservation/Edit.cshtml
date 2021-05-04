@@ -212,6 +212,8 @@
     </div>
     <div class="clearfix"> </div>
 </div>
+<!--Hedder End-->
+<!--Main Content Start-->
 <div id="page-wrapper">
     <div class="main-page">
         <h2 class="title1">Edit</h2>
@@ -260,18 +262,10 @@
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.PlaneID, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.PlaneID, "PlaneID", htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.PlaneID, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.DropDownList("PlaneID", null, htmlAttributes: new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.PlaneID, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Plane_tbls, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EnumDropDownListFor(model => model.Plane_tbls, htmlAttributes: new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.Plane_tbls, "", new { @class = "text-danger" })
                         </div>
                     </div>
 

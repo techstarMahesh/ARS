@@ -171,6 +171,7 @@ namespace ARS.Models
         //Coustuemr Name
         [Required(ErrorMessage ="Coustumer Name is Requard")]
         public string bCusName { get; set; }
+        
         //Coustumer Address
         [Required(ErrorMessage = "Coustumer Address is Requard")]
         public string To { get; set; }
@@ -212,20 +213,22 @@ namespace ARS.Models
 
         //Flight Taking Date
         [Required, Display(Name = "Date: ")]
+        [DataType(DataType.Date)]
         public string RestDepDate { get; set; }
 
         //Which time Flight Booking you want
         [Required, Display(Name = "Time: ")]
+        [DataType(DataType.Time)]
         public string RestTime { get; set; }
 
         //Flight Booking Plane Number or ID
         [Required, Display(Name = "Plane ID: ")]
         public int PlaneID { get; set; }
-        public virtual PlatformID Plane_tbls { get; set; }
+        public virtual AeroPlaneInfo Plane_tbls { get; set; }
 
         //Flight Seats Aribility
         [Required, Display(Name = "Seat Ability: ")]
-        public int PlaneSeats { get; set; }
+        public int PlaneSeats{ get; set; }
 
         //Flight Booing Price
         [Required, Display(Name = "Price: ")]

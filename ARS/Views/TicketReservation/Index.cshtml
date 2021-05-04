@@ -212,6 +212,8 @@
     </div>
     <div class="clearfix"> </div>
 </div>
+<!--Hedder End-->
+<!--Main Content Start-->
 <div id="page-wrapper">
     <div class="main-page">
         <h2 class="title1">Index</h2>
@@ -223,6 +225,9 @@
             <table class="table">
                 <tr>
                     <th>
+                        @Html.DisplayNameFor(model => model.Plane_tbls.planeName)
+                    </th>
+                    <th>
                         @Html.DisplayNameFor(model => model.RestFrom)
                     </th>
                     <th>
@@ -233,12 +238,6 @@
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.RestTime)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.PlaneID)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Plane_tbls)
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.PlaneSeats)
@@ -256,6 +255,9 @@
                 {
                     <tr>
                         <td>
+                            @Html.DisplayFor(modelItem => item.Plane_tbls.planeName)
+                        </td>
+                        <td>
                             @Html.DisplayFor(modelItem => item.RestFrom)
                         </td>
                         <td>
@@ -268,12 +270,6 @@
                             @Html.DisplayFor(modelItem => item.RestTime)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.PlaneID)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Plane_tbls)
-                        </td>
-                        <td>
                             @Html.DisplayFor(modelItem => item.PlaneSeats)
                         </td>
                         <td>
@@ -283,11 +279,14 @@
                             @Html.DisplayFor(modelItem => item.ResPlaneType)
                         </td>
                         <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.ResId }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.ResId }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.ResId })
+                            @Html.ActionLink("Edit", "Edit", new { id=item.ResId }) |
+                            @Html.ActionLink("Details", "Details", new { id=item.ResId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id=item.ResId })
                         </td>
                     </tr>
                 }
 
             </table>
+            </div>
+</div>
+</div>

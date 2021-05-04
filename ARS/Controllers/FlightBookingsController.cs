@@ -10,112 +10,112 @@ using ARS.Models;
 
 namespace ARS.Controllers
 {
-    public class TicketReservationController : Controller
+    public class FlightBookingsController : Controller
     {
         private ContextCS db = new ContextCS();
 
-        // GET: TicketReservation
+        // GET: FlightBookings
         public ActionResult Index()
         {
-            var ticketReservation_tbl = db.TicketReservation_tbl.Include(t => t.Plane_tbls);
-            return View(ticketReservation_tbl.ToList());
+            var flightsBookings = db.FlightsBookings.Include(f => f.TicketResevation_tbls);
+            return View(flightsBookings.ToList());
         }
 
-        // GET: TicketReservation/Details/5
+        // GET: FlightBookings/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TicketReservation_tbl ticketReservation_tbl = db.TicketReservation_tbl.Find(id);
-            if (ticketReservation_tbl == null)
+            FlightBooking flightBooking = db.FlightsBookings.Find(id);
+            if (flightBooking == null)
             {
                 return HttpNotFound();
             }
-            return View(ticketReservation_tbl);
+            return View(flightBooking);
         }
 
-        // GET: TicketReservation/Create
+        // GET: FlightBookings/Create
         public ActionResult Create()
         {
-            ViewBag.PlaneID = new SelectList(db.PlaneInfo, "PlaneId", "planeName");
+            ViewBag.ResId = new SelectList(db.TicketReservation_tbl, "ResId", "RestFrom");
             return View();
         }
 
-        // POST: TicketReservation/Create
+        // POST: FlightBookings/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ResId,RestFrom,RestTo,RestDepDate,RestTime,PlaneID,PlaneSeats,ResTicketPrice,ResPlaneType")] TicketReservation_tbl ticketReservation_tbl)
+        public ActionResult Create([Bind(Include = "bId,bCusName,To,bCusEmail,bCusSeats,bCusPhone,bCusCnic,ResId")] FlightBooking flightBooking)
         {
             if (ModelState.IsValid)
             {
-                db.TicketReservation_tbl.Add(ticketReservation_tbl);
+                db.FlightsBookings.Add(flightBooking);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.PlaneID = new SelectList(db.PlaneInfo, "PlaneId", "planeName", ticketReservation_tbl.PlaneID);
-            return View(ticketReservation_tbl);
+            ViewBag.ResId = new SelectList(db.TicketReservation_tbl, "ResId", "RestFrom", flightBooking.ResId);
+            return View(flightBooking);
         }
 
-        // GET: TicketReservation/Edit/5
+        // GET: FlightBookings/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TicketReservation_tbl ticketReservation_tbl = db.TicketReservation_tbl.Find(id);
-            if (ticketReservation_tbl == null)
+            FlightBooking flightBooking = db.FlightsBookings.Find(id);
+            if (flightBooking == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.PlaneID = new SelectList(db.PlaneInfo, "PlaneId", "planeName", ticketReservation_tbl.PlaneID);
-            return View(ticketReservation_tbl);
+            ViewBag.ResId = new SelectList(db.TicketReservation_tbl, "ResId", "RestFrom", flightBooking.ResId);
+            return View(flightBooking);
         }
 
-        // POST: TicketReservation/Edit/5
+        // POST: FlightBookings/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ResId,RestFrom,RestTo,RestDepDate,RestTime,PlaneID,PlaneSeats,ResTicketPrice,ResPlaneType")] TicketReservation_tbl ticketReservation_tbl)
+        public ActionResult Edit([Bind(Include = "bId,bCusName,To,bCusEmail,bCusSeats,bCusPhone,bCusCnic,ResId")] FlightBooking flightBooking)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(ticketReservation_tbl).State = EntityState.Modified;
+                db.Entry(flightBooking).State = EntityState.Modified;
                 db.SaveChanges();
-                return View();
+                return RedirectToAction("Index");
             }
-            ViewBag.PlaneID = new SelectList(db.PlaneInfo, "PlaneId", "planeName", ticketReservation_tbl.PlaneID);
-            return View(ticketReservation_tbl);
+            ViewBag.ResId = new SelectList(db.TicketReservation_tbl, "ResId", "RestFrom", flightBooking.ResId);
+            return View(flightBooking);
         }
 
-        // GET: TicketReservation/Delete/5
+        // GET: FlightBookings/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TicketReservation_tbl ticketReservation_tbl = db.TicketReservation_tbl.Find(id);
-            if (ticketReservation_tbl == null)
+            FlightBooking flightBooking = db.FlightsBookings.Find(id);
+            if (flightBooking == null)
             {
                 return HttpNotFound();
             }
-            return View(ticketReservation_tbl);
+            return View(flightBooking);
         }
 
-        // POST: TicketReservation/Delete/5
+        // POST: FlightBookings/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            TicketReservation_tbl ticketReservation_tbl = db.TicketReservation_tbl.Find(id);
-            db.TicketReservation_tbl.Remove(ticketReservation_tbl);
+            FlightBooking flightBooking = db.FlightsBookings.Find(id);
+            db.FlightsBookings.Remove(flightBooking);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

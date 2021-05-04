@@ -1,4 +1,4 @@
-﻿@model ARS.Models.TicketReservation_tbl
+﻿@model ARS.Models.FlightBooking
 
 @{
     ViewBag.Title = "Details";
@@ -216,81 +216,73 @@
 <!--Main Content Start-->
 <div id="page-wrapper">
     <div class="main-page">
-        <h2 class="title1">Derails</h2>
+        <h2 class="title1">Create</h2>
         <div class="blank-page widget-shadow scroll" id="style-2 div1">
 
             <div>
-                <h4>TicketReservation_tbl</h4>
+                <h4>FlightBooking</h4>
                 <hr />
                 <dl class="dl-horizontal">
                     <dt>
-                        @Html.DisplayNameFor(model => model.Plane_tbls.planeName)
+                        @Html.DisplayNameFor(model => model.TicketResevation_tbls.RestFrom)
                     </dt>
 
                     <dd>
-                        @Html.DisplayFor(model => model.Plane_tbls.planeName)
+                        @Html.DisplayFor(model => model.TicketResevation_tbls.RestFrom)
                     </dd>
 
                     <dt>
-                        @Html.DisplayNameFor(model => model.RestFrom)
+                        @Html.DisplayNameFor(model => model.bCusName)
                     </dt>
 
                     <dd>
-                        @Html.DisplayFor(model => model.RestFrom)
+                        @Html.DisplayFor(model => model.bCusName)
                     </dd>
 
                     <dt>
-                        @Html.DisplayNameFor(model => model.RestTo)
+                        @Html.DisplayNameFor(model => model.To)
                     </dt>
 
                     <dd>
-                        @Html.DisplayFor(model => model.RestTo)
+                        @Html.DisplayFor(model => model.To)
                     </dd>
 
                     <dt>
-                        @Html.DisplayNameFor(model => model.RestDepDate)
+                        @Html.DisplayNameFor(model => model.bCusEmail)
                     </dt>
 
                     <dd>
-                        @Html.DisplayFor(model => model.RestDepDate)
+                        @Html.DisplayFor(model => model.bCusEmail)
                     </dd>
 
                     <dt>
-                        @Html.DisplayNameFor(model => model.RestTime)
+                        @Html.DisplayNameFor(model => model.bCusSeats)
                     </dt>
 
                     <dd>
-                        @Html.DisplayFor(model => model.RestTime)
+                        @Html.DisplayFor(model => model.bCusSeats)
                     </dd>
 
                     <dt>
-                        @Html.DisplayNameFor(model => model.PlaneSeats)
+                        @Html.DisplayNameFor(model => model.bCusPhone)
                     </dt>
 
                     <dd>
-                        @Html.DisplayFor(model => model.PlaneSeats)
+                        @Html.DisplayFor(model => model.bCusPhone)
                     </dd>
 
                     <dt>
-                        @Html.DisplayNameFor(model => model.ResTicketPrice)
+                        @Html.DisplayNameFor(model => model.bCusCnic)
                     </dt>
 
                     <dd>
-                        @Html.DisplayFor(model => model.ResTicketPrice)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.ResPlaneType)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.ResPlaneType)
+                        @Html.DisplayFor(model => model.bCusCnic)
                     </dd>
 
                 </dl>
             </div>
             <p>
-                @Html.ActionLink("Edit", "Edit", new { id = Model.ResId }) |
+                @Html.ActionLink("Edit", "Edit", new { id = Model.bId }) |
                 @Html.ActionLink("Back to List", "Index")
             </p>
             </div>

@@ -1,9 +1,10 @@
-﻿@model ARS.Models.TicketReservation_tbl
+﻿@model ARS.Models.FlightBooking
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
 }
+
 
 <div class="sticky-header header-section ">
     <div class="header-left">
@@ -216,83 +217,86 @@
 <!--Main Content Start-->
 <div id="page-wrapper">
     <div class="main-page">
-        <h2 class="title1">Derails</h2>
+        <h2 class="title1">Edit</h2>
         <div class="blank-page widget-shadow scroll" id="style-2 div1">
 
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <h4>FlightBooking</h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.bId)
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.bCusName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.bCusName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.bCusName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.To, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.To, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.To, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.bCusEmail, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.bCusEmail, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.bCusEmail, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.bCusSeats, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.bCusSeats, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.bCusSeats, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.bCusPhone, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.bCusPhone, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.bCusPhone, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.bCusCnic, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.bCusCnic, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.bCusCnic, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ResId, "ResId", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("ResId", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ResId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Save" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            }
+
             <div>
-                <h4>TicketReservation_tbl</h4>
-                <hr />
-                <dl class="dl-horizontal">
-                    <dt>
-                        @Html.DisplayNameFor(model => model.Plane_tbls.planeName)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.Plane_tbls.planeName)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.RestFrom)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.RestFrom)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.RestTo)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.RestTo)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.RestDepDate)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.RestDepDate)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.RestTime)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.RestTime)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.PlaneSeats)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.PlaneSeats)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.ResTicketPrice)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.ResTicketPrice)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.ResPlaneType)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.ResPlaneType)
-                    </dd>
-
-                </dl>
-            </div>
-            <p>
-                @Html.ActionLink("Edit", "Edit", new { id = Model.ResId }) |
                 @Html.ActionLink("Back to List", "Index")
-            </p>
+            </div>
             </div>
         </div>
     </div>

@@ -1,10 +1,9 @@
-﻿@model ARS.Models.TicketReservation_tbl
+﻿@model IEnumerable<ARS.Models.FlightBooking>
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
 }
-
 <div class="sticky-header header-section ">
     <div class="header-left">
 
@@ -216,83 +215,71 @@
 <!--Main Content Start-->
 <div id="page-wrapper">
     <div class="main-page">
-        <h2 class="title1">Derails</h2>
+        <h2 class="title1">Index</h2>
         <div class="blank-page widget-shadow scroll" id="style-2 div1">
 
-            <div>
-                <h4>TicketReservation_tbl</h4>
-                <hr />
-                <dl class="dl-horizontal">
-                    <dt>
-                        @Html.DisplayNameFor(model => model.Plane_tbls.planeName)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.Plane_tbls.planeName)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.RestFrom)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.RestFrom)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.RestTo)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.RestTo)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.RestDepDate)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.RestDepDate)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.RestTime)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.RestTime)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.PlaneSeats)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.PlaneSeats)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.ResTicketPrice)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.ResTicketPrice)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.ResPlaneType)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.ResPlaneType)
-                    </dd>
-
-                </dl>
-            </div>
             <p>
-                @Html.ActionLink("Edit", "Edit", new { id = Model.ResId }) |
-                @Html.ActionLink("Back to List", "Index")
+                @Html.ActionLink("Create New", "Create")
             </p>
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TicketResevation_tbls.RestFrom)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.bCusName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.To)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.bCusEmail)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.bCusSeats)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.bCusPhone)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.bCusCnic)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TicketResevation_tbls.RestFrom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.bCusName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.To)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.bCusEmail)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.bCusSeats)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.bCusPhone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.bCusCnic)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id=item.bId }) |
+                            @Html.ActionLink("Details", "Details", new { id=item.bId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id=item.bId })
+                        </td>
+                    </tr>
+                }
+
+            </table>
             </div>
         </div>
     </div>

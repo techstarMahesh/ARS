@@ -22,16 +22,35 @@ namespace ARS.Migrations
                 c => new
                     {
                         bId = c.Int(nullable: false, identity: true),
-                        From = c.String(nullable: false, maxLength: 40),
-                        To = c.String(nullable: false, maxLength: 40),
-                        DDate = c.String(nullable: false),
-                        DTime = c.String(nullable: false, maxLength: 15),
-                        PlaneId = c.Int(nullable: false),
-                        SeatType = c.String(maxLength: 25),
+                        bCusName = c.String(nullable: false),
+                        To = c.String(nullable: false),
+                        bCusEmail = c.String(nullable: false),
+                        bCusSeats = c.String(nullable: false),
+                        bCusPhone = c.String(nullable: false),
+                        bCusCnic = c.String(nullable: false),
+                        ResId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.bId)
-                .ForeignKey("dbo.AeroPlaneInfoes", t => t.PlaneId, cascadeDelete: true)
-                .Index(t => t.PlaneId);
+                .ForeignKey("dbo.TicketReservation_tbl", t => t.ResId, cascadeDelete: true)
+                .Index(t => t.ResId);
+            
+            CreateTable(
+                "dbo.TicketReservation_tbl",
+                c => new
+                    {
+                        ResId = c.Int(nullable: false, identity: true),
+                        RestFrom = c.String(nullable: false),
+                        RestTo = c.String(nullable: false),
+                        RestDepDate = c.String(nullable: false),
+                        RestTime = c.String(nullable: false),
+                        PlaneID = c.Int(nullable: false),
+                        PlaneSeats = c.Int(nullable: false),
+                        ResTicketPrice = c.Single(nullable: false),
+                        ResPlaneType = c.String(nullable: false),
+                    })
+                .PrimaryKey(t => t.ResId)
+                .ForeignKey("dbo.AeroPlaneInfoes", t => t.PlaneID, cascadeDelete: true)
+                .Index(t => t.PlaneID);
             
             CreateTable(
                 "dbo.AeroPlaneInfoes",
@@ -65,10 +84,13 @@ namespace ARS.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.TblFlightBook", "PlaneId", "dbo.AeroPlaneInfoes");
-            DropIndex("dbo.TblFlightBook", new[] { "PlaneId" });
+            DropForeignKey("dbo.TblFlightBook", "ResId", "dbo.TicketReservation_tbl");
+            DropForeignKey("dbo.TicketReservation_tbl", "PlaneID", "dbo.AeroPlaneInfoes");
+            DropIndex("dbo.TicketReservation_tbl", new[] { "PlaneID" });
+            DropIndex("dbo.TblFlightBook", new[] { "ResId" });
             DropTable("dbo.TblUserAccount");
             DropTable("dbo.AeroPlaneInfoes");
+            DropTable("dbo.TicketReservation_tbl");
             DropTable("dbo.TblFlightBook");
             DropTable("dbo.TblAdminLogin");
         }

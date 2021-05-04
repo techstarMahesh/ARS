@@ -212,6 +212,8 @@
     </div>
     <div class="clearfix"> </div>
 </div>
+<!--Hedder End-->
+<!--Main Content Start-->
 <div id="page-wrapper">
     <div class="main-page">
         <h2 class="title1">Delete</h2>
@@ -222,6 +224,14 @@
                 <h4>TicketReservation_tbl</h4>
                 <hr />
                 <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Plane_tbls.planeName)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Plane_tbls.planeName)
+                    </dd>
+
                     <dt>
                         @Html.DisplayNameFor(model => model.RestFrom)
                     </dt>
@@ -252,22 +262,6 @@
 
                     <dd>
                         @Html.DisplayFor(model => model.RestTime)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.PlaneID)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.PlaneID)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.Plane_tbls)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.Plane_tbls)
                     </dd>
 
                     <dt>
@@ -309,3 +303,4 @@
             </div>
         </div>
     </div>
+
