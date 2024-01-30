@@ -7,13 +7,13 @@ namespace ARS.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class addTable : IMigrationMetadata
+    public sealed partial class AddTables : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddTables));
         
         string IMigrationMetadata.Id
         {
-            get { return "202401291230578_addTable"; }
+            get { return "202401300538461_AddTables"; }
         }
         
         string IMigrationMetadata.Source

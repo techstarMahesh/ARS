@@ -374,9 +374,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202401291230578_addTable.cs" />
-    <Compile Include="Migrations\202401291230578_addTable.designer.cs">
-      <DependentUpon>202401291230578_addTable.cs</DependentUpon>
+    <Compile Include="Migrations\202401300538461_AddTables.cs" />
+    <Compile Include="Migrations\202401300538461_AddTables.designer.cs">
+      <DependentUpon>202401300538461_AddTables.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AdminLogin.cs" />
@@ -461,8 +461,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202401291230578_addTable.resx">
-      <DependentUpon>202401291230578_addTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202401300538461_AddTables.resx">
+      <DependentUpon>202401300538461_AddTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
