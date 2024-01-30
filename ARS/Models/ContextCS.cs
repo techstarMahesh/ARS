@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Data.Entity;
-using ARS.Models;
-using ARS.Controllers;
+﻿using System.Data.Entity;
 
 namespace ARS.Models
 {
+    [DbConfigurationType(typeof(MySql.Data.MySqlClient.MySqlConfiguration))]
     public class ContextCS : DbContext
     {
-        public ContextCS() : base("cs")
+        public ContextCS() : base("name=cs")
         {
 
         }
