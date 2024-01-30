@@ -6,11 +6,19 @@
 
 ## Steps to run a project
 
-### Step 1:  Clone project
+### Step 1: Clone project
 
 ```bash
 git clone https://github.com/techstarMahesh/ARS.git
 ```
+
+### Step 2: Create a Database name
+```bash
+create database ars
+```
+
+### Step 3: change username and password
+By default, I use **username**** *root* and **password** *root* if you want to change then change it into the `web.config` file. 
 
 ### Step 2: Open the Solution by double click
 
